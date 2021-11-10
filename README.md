@@ -9,3 +9,5 @@ For the macro to work properly, the data must be organized in the following mann
   subfolders level 2: "data", "Masks" (case sensitive)
 During the run of the macro, a folder named "ROIs" is automatically created next to "data" and "Masks" folder
 The format of the raw microscopy images is: strain,condition,field_of_view - the macro uses commas to separate data in the results table.
+
+The macro uses the "LabelMap to ROI Manager (2D)" plugin that is a part of the CSF_ImgTools plugin package https://sites.imagej.net/SCF-MPI-CBG/
