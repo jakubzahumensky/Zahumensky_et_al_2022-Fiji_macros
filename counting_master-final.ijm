@@ -1,20 +1,19 @@
-var border=0.3;
-//var border=1;
+var border=0.3; //value needs to be adjusted based on actual microscop images
 var cell_cutoff=5;
 var title="";
 var roiDir="";
 var MasksDir="";
 
-Dialog.create("Cell measuring");
-	Dialog.addString("Source folder:", "");
-	Dialog.addString("Ext1:", "czi");
-	Dialog.addString("Ext2:", "oif");
-	Dialog.addString("Ext3:", "tif");
+ext1 = "czi";
+ext2 = "oif";
+ext3 = "tif";
+
+dir = getDirectory("Choose a Directory");
+types = newArray("Convert Masks to ROIs", "Check ROIs", "Measure");
+Dialog.create("Example Dialog");
+	Dialog.addChoice("Type:", types);
 	Dialog.show();
-	dir = Dialog.getString();
-	ext1 = Dialog.getString();
-	ext2 = Dialog.getString();
-	ext3 = Dialog.getString();
+	type = Dialog.getChoice();
 
 print("\\Clear");
 print("exp_code,BR_date,strain,condition,frame#,mean_background,cell#,patches,patch_density,patch_intensity,PM_base,patch_prominence,cell_area,cell_I-integral,cell_I-mean,cell_I-SD,cytosol_area,cytosol_I-integral,cytosol_I-mean,cytosol_I-SD,cytosol_I-CV,PM_area,PM_I-integral,PM_I-mean,PM_I-SD,PM_I-CV,PM_I-mean/Cyt_I-mean");	
@@ -29,10 +28,12 @@ function processFolder(dir) {
         processFolder(""+dir+list[i]);
       else {
 		q = dir+list[i];
-
-		Map_to_ROIs();
-		ROI_check();
-		measure();
+		if (matches(type, "Convert Masks to ROIs"))
+			Map_to_ROIs();
+			else 
+			if (matches(type, "Check ROIs"))
+			ROI_check();
+			else measure();
 		}
 	}
 }
@@ -223,7 +224,6 @@ function measure() {
 		close("*");
 	}
 }
-
 
 selectWindow("Log");
 saveAs("Text", dir+"Summary.csv");
