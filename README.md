@@ -1,4 +1,4 @@
-Image processing and analysis Fiji (ImageJ) macros used in:
+Fiji (ImageJ) macros used for automated image analysis in:
 
 **Zahumensky et al., 2022 - Microdomain Protein Nce102 Is a Local Sensor of Plasma Membrane Sphingolipid Balance**\
 *Microbiol Spectr* 10(4):e0196122\
@@ -19,10 +19,10 @@ Sample data are provided.
 The macro uses the "LabelMap to ROI Manager (2D)" plugin that is a part of the [CSF_ImgTools plugin package](https://sites.imagej.net/SCF-MPI-CBG/)
 
 ---
-
 # Updates
 The users are strongly recommended to use updated versions of these macros available [here](https://github.com/jakubzahumensky/microscopy_analysis).
 Their use is described in detail in:
 
-**Zahumensky & Malinsky 2024 – Live cell fluorescence microscopy-an end-to-end workflow for high-throughput image and data analysis**\
+**Zahumensky & Malinsky, 2024 – Live cell fluorescence microscopy-an end-to-end workflow for high-throughput image and data analysis**\
+*Biol Methods Protoc* 9(1):bpae075\
 doi: https://doi.org/10.1093/biomethods/bpae075
